@@ -66,11 +66,11 @@
 		var elementBoundingRectangle = $element.getBoundingClientRect();
 
 		if (typeof options.width === 'undefined') {
-			options.width = elementBoundingRectangle.width;
+			options.width = elementBoundingRectangle.width + 'px';
 		}
 
 		if (typeof options.height === 'undefined') {
-			options.height = elementBoundingRectangle.height;
+			options.height = elementBoundingRectangle.height + 'px';
 		}
 
 		var $dropdownContainer = this.buildChosenContainer(options),
