@@ -182,15 +182,15 @@
 
 				var $queryElement = document.createElement('span');
 
-				$queryElement.innerText = this.query;
+				$queryElement.textContent = this.query;
 
-				$noResults.innerText = this.options.noResultsText || 'No results match ';
+				$noResults.textContent = this.options.noResultsText || 'No results match ';
 
 				$noResults.appendChild($queryElement);
 
 			} else {
 
-				$noResults.innerText = this.options.emptyListText || 'No items in list';
+				$noResults.textContent = this.options.emptyListText || 'No items in list';
 			}
 
 			return [$noResults];
@@ -215,9 +215,9 @@
 			$result.setAttribute('data-option-value', item.value || '');
 
 			if (typeof options.renderResult === 'function') {
-				$result.innerText = options.renderResult(item, query, selectedValue);
+				$result.textContent = options.renderResult(item, query, selectedValue);
 			} else {
-				$result.innerText = item.text;
+				$result.textContent = item.text;
 			}
 
 			resultsElements.push($result);
@@ -374,7 +374,7 @@
 		if ($emptyOption) {
 			items.push({
 				value: null,
-				text: $emptyOption.innerText
+				text: $emptyOption.innerText || $emptyOption.textContent
 			});
 		}
 
@@ -382,7 +382,7 @@
 
 			items.push({
 				value: $options[i].getAttribute('value'),
-				text: $options[i].innerText
+				text: $options[i].innerText || $options[i].textContent
 			});
 		}
 
@@ -419,9 +419,9 @@
 			selectedItemText = selectedItem.text || '';
 
 		if (typeof this.options.renderSelectedValue === 'function') {
-			this.$selectedValueContainer.innerText = this.options.renderSelectedValue(selectedItem, this.query);
+			this.$selectedValueContainer.textContent = this.options.renderSelectedValue(selectedItem, this.query);
 		} else {
-			this.$selectedValueContainer.innerText = selectedItemText;
+			this.$selectedValueContainer.textContent = selectedItemText;
 		}
 
 		this.$element.value = value;
